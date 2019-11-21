@@ -1,0 +1,5 @@
+.nyc_output/
+appTests/
+failures.txt
+package.json
+runAppTests.sh
