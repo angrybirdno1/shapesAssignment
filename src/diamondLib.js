@@ -1,10 +1,14 @@
-const hollowLine = require("./utility.js").hollowLine;
-const filledLine = require("./utility.js").filledLine;
-const alternatingLine = require("./utility.js").alternatingLine;
-const interLacedLine = require("./utility.js").interLacedLine;
-const angledLine = require("./utility.js").angledLine;
+const {
+  hollowLine,
+  filledLine,
+  alternatingLine,
+  interLacedLine,
+  angledLine
+} = require('./utility');
 
-const arrayGeneratorDiamond = function(height) {
+const isEven = num => num % 2 == 0;
+
+const arrayGeneratorDiamond = function (height) {
   if (height % 1 != 0) {
     return [];
   }
@@ -21,41 +25,43 @@ const arrayGeneratorDiamond = function(height) {
   );
 };
 
-const diamondfilled = function(height) {
+const diamondfilled = function (height) {
   const diamondArray = arrayGeneratorDiamond(height);
-  return height % 2 == 0 ? "" : diamondArray.map(filledLine).join("\n");
+  return isEven(height) ? '' : diamondArray.map(filledLine).join('\n');
 };
 
-const diamondhollow = function(height) {
+const diamondhollow = function (height) {
   const diamondArray = arrayGeneratorDiamond(height);
-  return height % 2 == 0
-    ? ""
-    : diamondArray.map(hollowLine(diamondArray.length)).join("\n");
+  return isEven(height)
+    ? ''
+    : diamondArray.map(hollowLine(diamondArray.length)).join('\n');
 };
 
-const diamondalternating = function(height) {
+const diamondalternating = function (height) {
   const diamondArray = arrayGeneratorDiamond(height);
-  return height % 2 == 0
-    ? ""
-    : diamondArray.map(alternatingLine(diamondArray.length)).join("\n");
+  return isEven(height)
+    ? ''
+    : diamondArray.map(alternatingLine(diamondArray.length)).join('\n');
 };
 
-const diamondinterlaced = function(height) {
+const diamondinterlaced = function (height) {
   const diamondArray = arrayGeneratorDiamond(height);
-  return height % 2 == 0
-    ? ""
-    : diamondArray.map(interLacedLine(diamondArray.length)).join("\n");
+  return isEven(height)
+    ? ''
+    : diamondArray.map(interLacedLine(diamondArray.length)).join('\n');
 };
 
-const diamondangled = function(height) {
+const diamondangled = function (height) {
   const diamondArray = arrayGeneratorDiamond(height);
-  return height % 2 == 0
-    ? ""
-    : diamondArray.map(angledLine(diamondArray.length)).join("\n");
+  return isEven(height)
+    ? ''
+    : diamondArray.map(angledLine(diamondArray.length)).join('\n');
 };
 
-exports.diamondfilled = diamondfilled;
-exports.diamondhollow = diamondhollow;
-exports.diamondalternating = diamondalternating;
-exports.diamondinterlaced = diamondinterlaced;
-exports.diamondangled = diamondangled;
+module.exports = {
+  diamondangled,
+  diamondfilled,
+  diamondhollow,
+  diamondalternating,
+  diamondinterlaced
+};

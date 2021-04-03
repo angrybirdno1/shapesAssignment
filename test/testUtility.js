@@ -1,7 +1,7 @@
 const filledLine =  require('../src/utility.js').filledLine;
 const hollowLine = require('../src/utility.js').hollowLine;
 const alternatingLine = require('../src/utility.js').alternatingLine;
-const interLacedline = require('../src/utility.js').interLacedline;
+const interLacedLine = require('../src/utility.js').interLacedLine;
 const angledLine = require('../src/utility.js').angledLine;
 
 const assert = require('assert');

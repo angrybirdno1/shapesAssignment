@@ -1,9 +1,11 @@
-const hollowLine = require("./utility.js").hollowLine;
-const filledLine = require("./utility.js").filledLine;
-const alternatingLine = require("./utility.js").alternatingLine;
-const interLacedLine = require("./utility.js").interLacedLine;
+const {
+  hollowLine,
+  filledLine,
+  alternatingLine,
+  interLacedLine
+} = require('./utility');
 
-const arrayGeneratorOfRect = function(row, column) {
+const arrayGeneratorOfRect = function (row, column) {
   if (row % 1 != 0 || column % 1 != 0) {
     return [];
   }
@@ -14,32 +16,30 @@ const arrayGeneratorOfRect = function(row, column) {
   return rectArray;
 };
 
-const rectanglefilled = function(row, column) {
+const rectanglefilled = function (row, column) {
   const rectangleArray = arrayGeneratorOfRect(row, column);
-  return rectangleArray.map(filledLine).join("\n");
+  return rectangleArray.map(filledLine).join('\n');
 };
 
-const rectanglehollow = function(row, column) {
+const rectanglehollow = function (row, column) {
   const rectangleArray = arrayGeneratorOfRect(row, column);
-  return rectangleArray.map(hollowLine(rectangleArray.length)).join("\n");
+  return rectangleArray.map(hollowLine(rectangleArray.length)).join('\n');
 };
 
-const rectanglealternating = function(row, column) {
+const rectanglealternating = function (row, column) {
   const rectangleArray = arrayGeneratorOfRect(row, column);
-  return rectangleArray.map(alternatingLine(rectangleArray.length)).join("\n");
+  return rectangleArray.map(alternatingLine(rectangleArray.length)).join('\n');
 };
 
-const rectangleinterlaced = function(row, column) {
+const rectangleinterlaced = function (row, column) {
   const rectangleArray = arrayGeneratorOfRect(row, column);
-  return rectangleArray.map(interLacedLine(rectangleArray.length)).join("\n");
+  return rectangleArray.map(interLacedLine(rectangleArray.length)).join('\n');
 };
 
-const rectangleangled = function(row, column) {
-  return "";
+module.exports = {
+  rectangleangled: () => '',
+  rectanglefilled,
+  rectanglehollow,
+  rectanglealternating,
+  rectangleinterlaced
 };
-
-exports.rectanglefilled = rectanglefilled;
-exports.rectanglehollow = rectanglehollow;
-exports.rectanglealternating = rectanglealternating;
-exports.rectangleinterlaced = rectangleinterlaced;
-exports.rectangleangled = rectangleangled;

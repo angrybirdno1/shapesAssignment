@@ -1,9 +1,11 @@
-const hollowLine = require("./utility.js").hollowLine;
-const filledLine = require("./utility.js").filledLine;
-const alternatingLine = require("./utility.js").alternatingLine;
-const interLacedLine = require("./utility.js").interLacedLine;
+const {
+  hollowLine,
+  filledLine,
+  alternatingLine,
+  interLacedLine
+} = require('./utility');
 
-const arrayGeneratorTriangle = function(height) {
+const arrayGeneratorTriangle = height => {
   if (height % 1 != 0) {
     return [];
   }
@@ -14,32 +16,30 @@ const arrayGeneratorTriangle = function(height) {
   return triangleArray;
 };
 
-const trianglefilled = function(height) {
+const trianglefilled = height => {
   const triangleArray = arrayGeneratorTriangle(height);
-  return triangleArray.map(filledLine).join("\n");
+  return triangleArray.map(filledLine).join('\n');
 };
 
-const trianglehollow = function(height) {
+const trianglehollow = height => {
   const triangleArray = arrayGeneratorTriangle(height);
-  return triangleArray.map(hollowLine(triangleArray.length)).join("\n");
+  return triangleArray.map(hollowLine(triangleArray.length)).join('\n');
 };
 
-const trianglealternating = function(height) {
+const trianglealternating = height => {
   const triangleArray = arrayGeneratorTriangle(height);
-  return triangleArray.map(alternatingLine(triangleArray.length)).join("\n");
+  return triangleArray.map(alternatingLine(triangleArray.length)).join('\n');
 };
 
-const triangleinterlaced = function(height) {
+const triangleinterlaced = height => {
   const triangleArray = arrayGeneratorTriangle(height);
-  return triangleArray.map(interLacedLine(triangleArray.length)).join("\n");
+  return triangleArray.map(interLacedLine(triangleArray.length)).join('\n');
 };
 
-const triangleangled = function(height) {
-  return "";
+module.exports = {
+  triangleangled: () => '',
+  trianglefilled,
+  trianglehollow,
+  trianglealternating,
+  triangleinterlaced
 };
-
-exports.trianglefilled = trianglefilled;
-exports.trianglehollow = trianglehollow;
-exports.trianglealternating = trianglealternating;
-exports.triangleinterlaced = triangleinterlaced;
-exports.triangleangled = triangleangled;
