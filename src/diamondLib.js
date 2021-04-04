@@ -1,12 +1,11 @@
 const {
+  isEven,
   hollowLine,
   filledLine,
-  alternatingLine,
+  angledLine,
   interLacedLine,
-  angledLine
+  alternatingLine
 } = require('./utility');
-
-const isEven = num => num % 2 == 0;
 
 const arrayGeneratorDiamond = function (height) {
   if (height % 1 != 0) {

@@ -6,14 +6,8 @@ const {
 
 const { update } = require('./utility');
 
-const printPattern = function (cmdArgus) {
-  const pairs = slicing(cmdArgus);
-
-  if (isArgumentsNotValid(cmdArgus)) {
-    return '';
-  }
-
-  let defaultShape = [
+const getDefaultShapes = function (pairs) {
+  const defaultShape = [
     ['-s', 'rectangle'],
     ['-p', 'filled'],
     ['-d', '5,5']
@@ -21,6 +15,15 @@ const printPattern = function (cmdArgus) {
   for (let index = 0; index < pairs.length; index++) {
     update(defaultShape, pairs[index][0], pairs[index][1]);
   }
+  return defaultShape;
+};
+
+const printPattern = function (cmdArgs) {
+  if (isArgumentsNotValid(cmdArgs)) {
+    return '';
+  }
+
+  const defaultShape = getDefaultShapes(slicing(cmdArgs));
   const orderedArguments = [
     defaultShape[0][1],
     defaultShape[1][1],

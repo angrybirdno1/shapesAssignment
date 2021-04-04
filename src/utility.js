@@ -1,3 +1,5 @@
+const isEven = num => num % 2 == 0;
+
 const find = (table, key) => table.find(e => e[0] == key);
 
 const insert = function (table, key, value) {
@@ -37,7 +39,7 @@ const hollowLine = function (length) {
 
 const alternatingLine = function (length) {
   return function (element, index) {
-    if (index % 2 == 0) {
+    if (isEven(index)) {
       return ' '.repeat(element[0]) + '-'.repeat(element[1]);
     }
     return ' '.repeat(element[0]) + '+'.repeat(element[1]);
@@ -46,7 +48,7 @@ const alternatingLine = function (length) {
 
 const interLacedLine = function (length) {
   return function (element, index) {
-    if (index % 2 == 0) {
+    if (isEven(index)) {
       return (
         ' '.repeat(element[0]) + '-+'.repeat(element[1]).substr(0, element[1])
       );
@@ -73,6 +75,7 @@ const angledLine = function (length) {
 };
 
 module.exports = {
+  isEven,
   find,
   insert,
   update,

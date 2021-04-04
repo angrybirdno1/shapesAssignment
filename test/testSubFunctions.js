@@ -45,12 +45,7 @@ describe('testing of isArgumentsNotValid function', function () {
 
 describe('testing of printAccordingToOptions function', function () {
   it('it should return a specific pattern according to the options', function () {
-    assert.deepStrictEqual(
-      printAccordingToOptions(['triangle', 'filled', '4']),
-      '*\n**\n***\n****'
-    );
+    const actual = printAccordingToOptions(['triangle', 'filled', '4']);
+    assert.deepStrictEqual(actual, '*\n**\n***\n****');
   });
-  /*it('should return empty string if argument is incorrect',function(){
-    assert.deepStrictEqual(printAccordingToOptions(['triangle','filled']),'');
-  })*/
 });
